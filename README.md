@@ -250,7 +250,7 @@ Food delivery time is simulated using timers.
 
 TECHNOLOGIES USED
 
-Frontend
+Frontend :
 
 HTML
 
@@ -262,13 +262,15 @@ SVG for map visualization
 
 Chart visualization using basic chart scripts
 
-Backend
+Backend :
 
 Firebase (Firestore Database)
 
 Firebase services used / intended:
 Firebase Realtime Database – storing crowd levels and user data
+
 Firebase Authentication – user identification (optional extension)
+
 Firebase Hosting – deployment of the web application
 
 FUTURE IMPROVEMENTS
