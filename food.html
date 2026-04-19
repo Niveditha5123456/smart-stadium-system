@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart Food Ordering</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="firebase-functions.js"></script>
+</head>
+
+<body class="bg">
+
+<h2 class="title">SMART FOOD ORDERING 🍔</h2>
+
+<!-- CATEGORY TABS -->
+<div class="tabs">
+  <button onclick="filterCategory('all')">All</button>
+  <button onclick="filterCategory('beverages')">Beverages</button>
+  <button onclick="filterCategory('wraps')">Rolls & Wraps</button>
+  <button onclick="filterCategory('burger')">Burgers</button>
+  <button onclick="filterCategory('pizza')">Pizza</button>
+  <button onclick="filterCategory('pasta')">Pasta</button>
+  <button onclick="filterCategory('chat')">Chat</button>
+  <button onclick="filterCategory('snacks')">Snacks</button>
+</div>
+
+<div class="tabs">
+  <button onclick="filterType('all')">All</button>
+  <button onclick="filterType('Veg')">Veg 🥦</button>
+  <button onclick="filterType('Non-Veg')">Non-Veg 🍗</button>
+</div>
+
+<div id="menu" class="food-container"></div>
+
+<button class="order-btn" onclick="placeOrder()">Place Order</button>
+
+<button class="prev-btn" onclick="location.href='emergency.html'">← Prev</button>
+<script type="module" src="food.js"></script>
+</body>
+</html>

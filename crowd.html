@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Crowd Levels</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="firebase-config.js"></script>
+<script src="firebase-functions.js"></script>
+
+<style>
+
+body{
+margin: 0;
+height: 100vh;
+background: 
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
+    url("https://i.postimg.cc/BZYgMhhR/1000084980.png") no-repeat center center/cover;
+
+}
+
+
+
+h1{
+margin-top:20px;
+color:white;
+text-align:center;
+}
+
+.chartbox{
+width:600px;
+margin:auto;
+margin-top:30px;
+background-color: antiquewhite;
+}
+
+.nav-buttons {
+  width: 100%;
+  position: relative;
+  margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #3b82f6;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    position: absolute;
+}
+
+.btn:hover {
+  background: #2563eb;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<h1>LIVE CROWD LEVELS</h1>
+
+<div class="chartbox">
+<canvas id="crowdChart"></canvas>
+</div>
+
+<div class="chartbox">
+<canvas id="zoneChart"></canvas>
+</div>
+
+<div class="nav-buttons">
+  <a href="map.html" class="btn prev">Prev</a>
+  <a href="twin.html" class="btn next">Next</a>
+</div>
+
+<script>
+
+let crowdData=[30,50,40,60];
+
+const ctx=document.getElementById("crowdChart");
+
+const crowdChart=new Chart(ctx,{
+type:'bar',
+data:{
+labels:["Gate 1","Gate 2"],
+datasets:[{
+label:"Crowd Density (%)",
+data:crowdData,
+backgroundColor:['#3498db','#2ecc71','#e64c3c','#f1c40f','#9b59b6','#1abc9c']
+}]
+},
+options:{
+  pluggins:{
+    legend:{
+      labels:{
+        color:'white'
+      }
+    }
+  },
+  scales:{
+    x:{
+      ticks:{
+        color:'black'
+      }
+    },
+    y:{
+      ticks:{
+        color:'black'
+      },
+      title:{
+        display:true,
+        text:'Crowd Density (%)',
+        color:'black'
+      }
+    }
+
+  }
+
+
+}
+});
+
+
+const ctx2=document.getElementById("zoneChart");
+
+const zoneChart=new Chart(ctx2,{
+type:'pie',
+data:{
+labels:["Zone A","Zone B","Zone C"],
+datasets:[{
+data:[25,35,20],
+backgroundColor:['#3498db','#2ecc71','#e64c3c','#f1c40f','#9b59b6','#1abc9c']
+}]
+},
+options:{
+  pluggins:{
+    legend:{
+      labels:{
+        color:'white'
+      }
+    }
+  },
+  scales:{
+    x:{
+      ticks:{
+        color:'black'
+      }
+    },
+    y:{
+      ticks:{
+        color:'black'
+      },
+      title:{
+        display:true,
+        text:'Crowd Density (%)',
+        color:'black'
+      }
+    }
+
+  }
+
+
+}
+});
+
+
+
+function updateCrowd(){
+
+for(let i=0;i<crowdData.length;i++){
+crowdData[i]=Math.floor(Math.random()*100);
+}
+
+crowdChart.update();
+
+zoneChart.data.datasets[0].data=[
+Math.floor(Math.random()*40),
+Math.floor(Math.random()*40),
+Math.floor(Math.random()*40),
+Math.floor(Math.random()*40)
+];
+
+zoneChart.update();
+
+}
+
+setInterval(updateCrowd,3000);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Emergency System</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="firebase-functions.js"></script>
+</head>
+
+<body class="bg">
+<div class="dashboard">
+
+  <h3>🚨 CONTROL PANEL</h3>
+
+  <p>Total People: <span id="totalPeople">0</span></p>
+  <p>Gate 1: <span id="g1">-</span></p>
+  <p>Gate 2: <span id="g2">-</span></p>
+
+  <p>Best Exit: <span id="bestExit">-</span></p>
+  <p>Status: <span id="statusDash">Safe</span></p>
+
+</div>
+
+<h2 class="title">🚨 EMERGENCY INTELLIGENCE SYSTEM</h2>
+
+<div class="emergency-container">
+
+  <!-- STADIUM MAP -->
+  <div class="stadium-map" id="emap">
+
+    <!-- EXITS -->
+    <div class="exit" style="top:5%; left:20%;">Gate 1</div>
+    <div class="exit" style="top:5%; right:20%;">Gate 2</div>
+
+    <!-- YOU -->
+    <div id="you" class="you">📍 You</div>
+
+    <!-- ROUTE ARROWS -->
+    <div id="route"></div>
+
+  </div>
+
+  <!-- INFO PANEL -->
+  <div class="info-box">
+    <p id="status">Status: Safe</p>
+    <p id="routeInfo">Best Exit: Calculating...</p>
+  </div>
+
+  <!-- SOS BUTTON -->
+  <button class="sos-btn" onclick="sendSOS()">🚨 SOS</button>
+
+</div>
+
+<button class="prev-btn" onclick="location.href='friends.html'">← Prev</button>
+<button class="next-btn" onclick="location.href='food.html'">Next →</button>
+
+<script src="emergency.js"></script>
+
+</body>
+</html>

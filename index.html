@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart Stadium</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="home">
+  <!-- NAVBAR -->
+<div class="navbar">
+  
+  
+
+  <div class="nav-right">
+    <a href="index.html">🏠 Home</a>
+    <a href="#contact">📞 Contact</a>
+    <a href="#" onclick="logout()">🚪 Logout</a>
+  </div>
+
+</div>
+
+
+  <!-- HEADING -->
+  <div class="heading">
+    <h1>
+      WELCOME <br>
+      <span>TO</span> <br>
+      SMART STADIUM
+    </h1>
+  </div>
+
+  <!-- INPUT BOX -->
+  <form action="map.html">
+  <div class="input-box">
+    <input type="text" placeholder="Full Name" required>
+    <input type="email" placeholder="Email Address" required>
+  </div>
+
+  <!-- BUTTON OUTSIDE BOX -->
+  <div class="btn-container">
+      <button type="submit" class="enter-btn">LOGIN</button>
+  </div>
+  </form>
+
+  <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <p><i class="fas fa-envelope"></i> Email: support@smartstadium.ai</p>
+        <p><i class="fas fa-phone"></i> Phone: +91 98765 43210</p>
+        <p><i class="fas fa-map-marker-alt"></i> Location: Calicut, Kerala</p>
+        <p><i class="fas fa-headset"></i> Support: helpdesk@smartstadium.ai</p>
+    </section>
+
+<script>
+function logout() {
+    window.close();
+}
+</script>
+
+</body>
+</html>

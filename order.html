@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Summary</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="firebase-functions.js"></script>
+</head>
+
+<body class="bg">
+<div class="order-box">
+  <h2> FINAL SUMMARY 🧾</h2>
+
+  <div id="summary"></div>
+
+<div class="delivery-box">
+
+<select id="delivery" onchange="toggleSeat()">
+<option value="pickup">Pickup</option>
+<option value="seat">Deliver to Seat</option>
+</select>
+
+<input type="text" id="seat" placeholder="Enter Seat Number (Example: 45A)" disabled>
+
+<div class="payment-box">
+<label>Payment Method:</label><br>
+<input type="radio" name="payment" value="cod" checked> Cash on Delivery<br>
+<input type="radio" name="payment" value="upi"> UPI Payment<br>
+</div>
+
+</div>
+
+<div class="actions">
+    <button onclick="goBack()">Prev</button>
+    <button onclick="addMore()" id="add-more-btn">Add More Items</button>
+    <button onclick="clearCart()" class="clear-btn" id="clear-btn">Clear</button>
+    <button onclick="confirmOrder()" class="confirm-btn" id="confirm-btn">Confirm Order</button>
+  </div>
+
+<div class="tracker">
+  <div class="step active" id="stage1">
+    <div class="circle">1</div>
+    <p>Ordered</p>
+  </div>
+
+  <div class="line"></div>
+
+  <div class="step" id="stage2">
+    <div class="circle">2</div>
+    <p>Being Prepared</p>
+  </div>
+
+  <div class="line"></div>
+
+  <div class="step" id="stage3">
+    <div class="circle">3</div>
+    <p>Ready for Pickup</p>
+  </div>
+
+  <div class="line"></div>
+
+  <div class="step" id="stage4">
+    <div class="circle">4</div>
+    <p>On the Way</p>
+  </div>
+
+  <div class="line"></div>
+
+  <div class="step" id="stage5">
+    <div class="circle">5</div>
+    <p>Delivered</p>
+  </div>
+
+  <div id="rider" class="rider">🚴</div>
+</div>
+
+<p id="eta"></p>
+
+<div class="bottom-buttons">
+  <button onclick="goToFood()" class="left-btn">Prev</button>
+  <button onclick="goToIndex()" class="right-btn">Back</button>
+</div>
+
+<script src="order.js"></script>
+
+  
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Smart Map</title>
+<link rel="stylesheet" href="style.css">
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="firebase-config.js"></script>
+<script src="firebase-functions.js"></script>
+<style>
+
+body {
+margin: 0;
+height: 100vh;
+background: 
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
+    url("https://i.postimg.cc/BZYgMhhR/1000084980.png") no-repeat center center/cover;
+}
+
+
+h1{
+margin-top:20px;
+color: #3b82f6;
+
+}
+#path {
+  fill: none;
+  stroke: #00eaff;
+  stroke-width: 5;
+  filter: drop-shadow(0 0 8px #00eaff)
+          drop-shadow(0 0 16px #00eaff)
+          drop-shadow(0 0 30px #00eaff);
+
+}
+
+#map{
+background: #24384d;
+border-radius:10px;
+display:block;
+margin:auto;
+
+border: 2px solid #3b82f6;
+
+box-shadow:
+  0 0 10px #3b82f6,
+  0 0 20px #3b82f6,
+  0 0 40px rgba(59, 130, 246, 0.6);
+
+
+
+}
+
+text {
+  fill: white;
+  font-weight: bold;
+}
+
+.pin{
+font-size:20px;
+cursor:pointer;
+}
+
+.info{
+margin-top:20px;
+font-size:18px;
+font-weight:bold;
+}
+.nav-buttons {
+  width: 100%;
+  position: relative;
+  margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #3b82f6;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    position: absolute;
+}
+
+.btn:hover {
+  background: #2563eb;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>SMART STADIUM MAP</h1>
+
+<svg id="map" width="800" height="500">
+
+<!-- outer stadium -->
+<ellipse cx="400" cy="250" rx="320" ry="180"
+fill="#1f5d55" stroke="#3a7d6d" stroke-width="20"/>
+
+<!-- inner field -->
+<ellipse cx="400" cy="250" rx="180" ry="90"
+fill="#2f8f7a"/>
+
+<!-- outer paths -->
+<path d="M80 200 L200 140 L400 130 L600 150 L720 230"
+stroke="#355c7d" stroke-width="6" fill="none"/>
+
+<path d="M80 320 L250 360 L420 370 L600 350 L720 300"
+stroke="#355c7d" stroke-width="6" fill="none"/>
+
+<!-- YOU location -->
+<circle cx="400" cy="250" r="14" fill="#e74c3c"/>
+<circle cx="400" cy="250" r="6" fill="black"/>
+<text x="385" y="280" fill="white">You</text>
+
+<!-- Gate 1 -->
+<text x="120" y="120" class="pin" onclick="showPath('gate')">📍</text>
+<text x="100" y="100">Gate 1</text>
+
+<!-- Gate 2 -->
+<text x="120" y="340" class="pin">📍</text>
+<text x="100" y="360">Gate 2</text>
+
+<!-- Food Stall -->
+<text x="650" y="360" class="pin" onclick="showPath('food')">🍔</text>
+<text x="620" y="390">Food Stall</text>
+
+<!-- Washroom -->
+<text x="350" y="120" class="pin" onclick="showPath('washroom')">🚻</text>
+<text x="330" y="100">Washroom</text>
+
+<!-- Zone A -->
+<text x="650" y="120" class="pin">📍</text>
+<text x="650" y="100">Zone A</text>
+
+<!-- Zone B -->
+<text x="700" y="260" class="pin">📍</text>
+<text x="700" y="240">Zone B</text>
+
+<!-- Zone C -->
+<text x="200" y="260" class="pin">📍</text>
+<text x="200" y="240">Zone C</text>
+
+<!-- navigation path -->
+<polyline id="path"
+points="400,250"
+stroke="#4da6ff"
+stroke-width="5"
+fill="none"/>
+
+</svg>
+
+<div class="info" id="info">
+Click a location to see direction
+</div>
+<div class="nav-buttons">
+  <a href="index.html" class="btn prev">Prev</a>
+  <a href="crowd.html" class="btn next">Next</a>
+</div>
+
+<script>
+
+function showPath(place){
+
+let path=document.getElementById("path");
+let info=document.getElementById("info");
+
+if(place=="gate"){
+path.setAttribute("points",
+"400,250 350,230 300,210 250,200 200,180 150,160 120,120");
+
+info.innerHTML="Direction → Gate 1 (Less Crowded) | Distance: 110 m";
+}
+
+if(place=="washroom"){
+path.setAttribute("points",
+"400,250 380,220 360,190 350,150 350,120");
+
+info.innerHTML="Nearest Washroom | Distance: 70 m";
+}
+
+if(place=="food"){
+path.setAttribute("points",
+"400,250 450,260 500,280 560,300 610,330 650,360");
+
+info.innerHTML="Food Stall | Distance: 90 m";
+}
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Digital Twin</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="firebase-functions.js"></script>
+</head>
+
+
+<div class="nav-buttons">
+  <a href="crowd.html" class="btn prev">Prev</a>
+  <a href="chat.html" class="btn next">Next</a>
+</div>
+
+<body class="page">
+
+  <h2 class="title">DIGITAL TWIN - CROWD SIMULATION</h2>
+
+  <!-- STADIUM CONTAINER -->
+  <div class="stadium">
+
+    <!-- ZONES -->
+    <div class="zone" id="gate1">
+    <div class="icon">🚪</div>
+    <h3>Gate 1</h3>
+    <span class="count">0 people</span>
+  </div>
+
+  <div class="zone" id="gate2">
+    <div class="icon">🚪</div>
+    <h3>Gate 2</h3>
+    <span class="count">0 people</span>
+  </div>
+
+  <div class="zone green">
+  <span class="icon">👥</span>
+  <h3>Zone A</h3>
+  <div class="count">0 people</div>
+</div>
+
+<div class="zone green">
+  <span class="icon">👥</span>
+  <h3>Zone B</h3>
+  <div class="count">0 people</div>
+</div>
+
+<div class="zone green">
+  <span class="icon">👥</span>
+  <h3>Zone C</h3>
+  <div class="count">0 people</div>
+</div>
+
+  <div class="zone" id="food">
+    <div class="icon">🍔</div>
+    <h3>Food Stall</h3>
+    <span class="count">0 people</span>
+  </div>
+
+
+  <div class="zone" id="washroom">
+    <div class="icon">🚻</div>
+    <h3>Washroom</h3>
+    <span class="count">0 people</span>
+  </div>
+
+</div>
+     
+
+  <!-- NEXT BUTTON -->
+  <a href="chat.html">
+    <button class="next-btn">Next →</button>
+  </a>
+
+  <script src="twin.js"></script>
+  <audio id="alertSound">
+  <source src="https://www.soundjay.com/buttons/beep-07.mp3" type="audio/mpeg">
+</audio>
+
+</body>
+</html>

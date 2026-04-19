@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Friends Locator</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="firebase-functions.js"></script>
+</head>
+
+<body class="bg">
+
+<h2 class="title">FRIENDS LOCATOR 📍</h2>
+
+<div class="locator-container">
+
+  <div class="add-friend">
+    <input type="text" id="friendName" placeholder="Enter friend name">
+    <button onclick="addFriend()">Add</button>
+  </div>
+
+  <!-- STADIUM MAP -->
+  <div class="stadium-map" id="map">
+
+    <!-- ZONES -->
+    <!-- TOP GATES -->
+<div class="zone-label" style="top: 5%; left: 20%;">🚪 Gate 1</div>
+<div class="zone-label" style="top: 5%; right: 20%;">🚪 Gate 2</div>
+
+<!-- LEFT & RIGHT MID -->
+<div class="zone-label" style="top: 45%; left: 5%;">🚻 Washroom</div>
+<div class="zone-label" style="top: 45%; right: 5%;">🍔 Food Stall</div>
+
+<!-- CENTER -->
+<div class="zone-label center">🎯 Main Arena</div>
+
+<!-- LOWER MID -->
+<div class="zone-label" style="bottom: 25%; left: 35%;">👥 Zone B</div>
+<div class="zone-label" style="bottom: 25%; right: 35%;">👥 Zone C</div>
+
+<!-- BOTTOM -->
+<div class="zone-label" style="bottom: 5%; left: 20%;">👥 Zone A</div>
+
+    <!-- YOU -->
+    <div class="you">📍 You</div>
+
+  </div>
+
+</div>
+
+<button class="prev-btn" onclick="location.href='chat.html'">← Prev</button>
+<button class="next-btn" onclick="location.href='emergency.html'">Next →</button>
+
+<script src="friends.js"></script>
+
+</body>
+</html>
